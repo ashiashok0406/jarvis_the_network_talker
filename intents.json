@@ -78,15 +78,33 @@
          "responses": ["Hmm, following is the number of reboots I recon"],
          "context": "sdwan_get_reboot_count()"
         },
-        {"tag": "search_hospital_by_params",
-         "patterns": [],
-         "responses": ["Please provide hospital type"],
-         "context": ["search_hospital_by_type"]
+        {"tag": "sdwan008_deviceMonitro",
+         "patterns": ["Show me device status in entire network",
+                      "Is all devices are fine",
+                      "Show me all device status",
+                      "How are all devices doing network"],
+         "responses": ["here is the current status of devices in network"],
+         "context": "sdwan_get_device_status()"
         },
-        {"tag": "search_hospital_by_type",
-         "patterns": [],
-         "responses": ["Loading hospital details"],
-         "context": [""]
+        {"tag": "sdwan008_serverDetails",
+         "patterns": ["show me sdwan server details",
+                      "show me SDN controller details",
+                        "How is main server doing",
+                      "What is my server made up of?"],
+         "responses": ["These are details, I got for your server"],
+         "context": "sdwan_show_vmanage_details()"
+        },
+        {"tag": "sdwan009_connectivity_summary",
+         "patterns": ["Show connectivity summary",
+                      "how are the connections in network",
+                      "Is all connections fine"],
+         "responses": ["checked and got the list of connections, I am listing here"],
+         "context": "sdwan_show_connectivity_summary()"
+        },
+        {"tag": "sdwan010_show_events",
+         "patterns": ["show me latest events"],
+         "responses": ["Here are the last hundred events occured, this takes time to respond. Hang tight"],
+         "context": "show_last_events()"
         }
    ]
 }
